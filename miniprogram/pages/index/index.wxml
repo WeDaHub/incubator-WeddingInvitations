@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <cover-image hidden="{{musicPaused || currentTab === 'video'}}" bindtap="swtichPlay" class="music-icon rotate-animation"
+    src="{{musicIcon.play}}"></cover-image>
+  <cover-image hidden="{{!musicPaused || currentTab === 'video'}}" bindtap="swtichPlay" class="music-icon"
+    src="{{musicIcon.pause}}"></cover-image>
+  <love-welcome class="page-wrap" is-show="{{ currentTab === 'welcome' }}"></love-welcome>
+  <love-pic class="page-wrap" is-show="{{ currentTab === 'pic' }}"></love-pic>
+  <love-video class="page-wrap" wx:if="{{ currentTab === 'video' }}"></love-video>
+  <love-wish class="page-wrap" wx:if="{{ currentTab === 'wish' }}"></love-wish>
+  <mp-tabbar ext-class="weui-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}"
+    bindchange="tabChange"></mp-tabbar>
+</view>

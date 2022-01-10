@@ -1,0 +1,32 @@
+/**index.wxss**/
+.page-wrap {
+  width: 100%;
+}
+
+.weui-tabbar .weui-bar__item_on .weui-tabbar__label{
+  color: #d81e06;
+}
+
+.weui-tabbar__label {
+  color: #515151;
+}
+
+.music-icon {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 64rpx;
+  height: 64rpx;
+  z-index: 10;
+}
+
+.rotate-animation {
+  animation: test 2s linear infinite;
+}
+
+@keyframes test {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
+

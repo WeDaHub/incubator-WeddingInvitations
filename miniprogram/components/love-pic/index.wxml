@@ -1,0 +1,8 @@
+<!--components/love-pic/index.wxml-->
+<view hidden="{{ !isShow }}" class="pic-page">
+  <view class="rows" wx:for="{{rols}}" wx:for-item="i" wx:key="i">
+    <view class="cols" bindtap="showPreview" data-index="{{i * 3 + j}}" wx:for="{{[0,1,2]}}" wx:for-item="j" wx:key="j">
+      <image lazy-load="true" mode="aspectFit" class="pic-page__small" src="{{smallImgUrls[i * 3 + j]}}"></image>
+    </view>
+  </view>
+</view>

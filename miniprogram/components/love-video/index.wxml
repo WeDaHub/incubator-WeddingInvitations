@@ -1,0 +1,11 @@
+<!--components/video/index.wxml-->
+<view class="video-page">
+  <video bindtimeupdate="bindtimeupdate" danmu-btn danmuList="{{danmuList}}" enable-danmu class="video-page__video"
+    autoplay="true" src="{{videoUrl}}"></video>
+  <view class="tanmu-wrap">
+    <view style="margin: 30rpx auto; color: #515151" class="weui-label">弹幕内容(弹幕后台审核后将在视频上显示)</view>
+    <input value="{{danmuText}}" style="caret-color: #E6222A;" bindinput="bindInput" class="weui-input" type="text" placeholder="在此处输入弹幕内容" />
+    <button style="margin: 30rpx auto" bindtap="bindSendDanmu" class="page-body-button" type="primary"
+      formType="submit">发送弹幕</button>
+  </view>
+</view>

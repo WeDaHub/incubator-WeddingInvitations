@@ -1,0 +1,73 @@
+<!-- 提前加载表情图片 -->
+<image hidden="true" src="{{emojiSource}}" />
+<view class="record-wrap">
+  <block wx:for="{{wishComment}}" wx:key="*this">
+    <view class="record">
+      <block wx:if="{{item.isWxUser}}">
+        <image lazy-load="true" class="avator" src="{{item.avatarUrl}}"></image>
+      </block>
+      <block wx:else>
+        <view class="avator">{{item.firstChartNicKName}}</view>
+      </block>
+      <view style="flex: 1">
+        <view class="time">{{item.nickName}}({{item.time}})</view>
+        <view class="comment">
+          <block wx:for="{{item.parsedCommnet}}" wx:key="*this">
+            <block wx:if="{{item.type === 1}}">{{item.content}}</block>
+            <view wx:if="{{item.type === 2}}"
+              style="display: inline-block; width: {{lineHeight}}px; height: {{lineHeight}}px">
+              <view class="{{item.imageClass}} emoji"
+                style="background-image: url({{emojiSource}});transform-origin: 0 0; transform: scale({{lineHeight / 64}});">
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="wish_btn">
+  <block wx:if="{{isAuthorizeUserInfo}}">
+    <button bindtap="showInputWish" class="weui-btn" type="primary">我要送祝福</button>
+  </block>
+  <block wx:else>
+    <button bindgetuserinfo="bindGetUserInfo" class="weui-btn" open-type="getUserInfo" type="primary">我要送祝福</button>
+  </block>
+</view>
+
+<view class="reply_wrap" hidden="{{!isShowWishInput}}">
+  <view bindtap="hideInputWish" class="mask"></view>
+  <view class="content">
+    <view class="reply_tips">
+      <label>送祝福：</label>
+    </view>
+    <view class="reply_tool">
+      <view class="reply_form_wrp">
+        <label for="" class="reply_label">
+          <input maxlength="20" value="{{userInfo.nickName}}" placeholder="点击输入姓名或昵称" class="reply_input" bindinput="onNameInput"
+            cursor-spacing="8px" />
+        </label>
+      </view>
+    </view>
+    <view class="reply_tool">
+      <view class="reply_form_wrp">
+        <label for="" class="reply_label">
+          <input maxlength="40" placeholder="点击输入送上对新人的祝福" class="reply_input" cursor-spacing="8px" confirm-type="send"
+            adjust-position="{{false}}" confirm-hold value="{{comment}}" cursor="{{cursor}}" focus="{{focus}}"
+            bindblur="onBlur" bindfocus="onFocus" bindinput="onInput" bindconfirm="onConfirm"
+            bindkeyboardheightchange="onkeyboardHeightChange" />
+        </label>
+      </view>
+      <view hover-class="active" class="reply_button replay_emotion_button" bindtap="showEmoji">
+        <image src="./images/reply_tool_emoji.svg" mode='aspectFit' class="reply_tool_pic"></image>
+      </view>
+    </view>
+    <view class="reply_panel_wrp" style="height: {{emojiShow ? 300 : 200}}px;" hidden="{{!emojiShow && !functionShow}}">
+      <view class="reply_panel {{emojiShow ? 'show': ''}}" hidden="{{!emojiShow}}">
+        <mp-emoji show-history="{{false}}" source="{{emojiSource}}" class="mp-emoji" bindinsertemoji="insertEmoji"
+          binddelemoji="deleteEmoji" bindsend="onsend"></mp-emoji>
+      </view>
+    </view>
+  </view>
+</view>

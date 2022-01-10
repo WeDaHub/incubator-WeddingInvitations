@@ -1,0 +1,23 @@
+<!--components/welcome/index.wxml-->
+<view scroll-y="true" class="welcome-page" hidden="{{!isShow}}">
+  <swiper indicator-dots="true" circular="true">
+      <swiper-item>
+        <image class="welcome-page__img" mode="aspectFit" src="{{bgurl}}"></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="welcome-page__img" mode="aspectFit" src="{{bgurl_2}}"></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="welcome-page__img" mode="aspectFit" src="{{bgurl_3}}"></image>
+        <view class="welcome-page__map">
+          <view class="title">WELCOME</view>
+          <view class="welcome">诚邀您参加婚礼</view>
+          <view class="time">{{time}}</view>
+          <view class="addr">{{address}}</view>
+          <map id="myMap" bindtap="toNavigation" class="map" enable-building="true" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" >
+            <view class="navigate">导航</view>
+          </map>
+        </view>
+      </swiper-item>
+  </swiper>
+</view>

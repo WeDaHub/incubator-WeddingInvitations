@@ -1,0 +1,18 @@
+{
+  "name": "wedding-invitations",
+  "version": "1.0.0",
+  "description": "结婚电子请柬",
+  "main": "index.js",
+  "dependencies": {
+    "@miniprogram-component-plus/emoji": "^1.0.1",
+    "miniprogram-computed": "^2.2.0"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

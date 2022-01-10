@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "mp-tabbar": "weui-miniprogram/tabbar/tabbar",
+    "love-welcome": "../../components/love-welcome",
+    "love-video": "../../components/love-video",
+    "love-pic": "../../components/love-pic",
+    "love-wish": "../../components/love-wish"
+  }
+}
